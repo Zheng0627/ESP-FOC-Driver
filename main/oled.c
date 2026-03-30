@@ -19,8 +19,8 @@ static const char *TAG = "oled";
 #define OLED_I2C_PORT                0
 #define OLED_PIXEL_CLOCK_HZ          (400 * 1000)
 #define OLED_I2C_ADDR                0x3C
-#define OLED_I2C_SDA_GPIO            18
-#define OLED_I2C_SCL_GPIO            17
+#define OLED_I2C_SDA_GPIO            5
+#define OLED_I2C_SCL_GPIO            4
 #define OLED_RESET_GPIO              -1
 #define OLED_H_RES                   128
 #define OLED_V_RES                   64
@@ -153,15 +153,15 @@ esp_err_t oled_show_status_screen(void)
 	lv_obj_clean(screen);
 
 	lv_obj_t *line1 = lv_label_create(screen);
-	lv_label_set_text(line1, "ESP-FOV-Driver");
+	lv_label_set_text(line1, "ESP-FOC-Driver");
 	lv_obj_align(line1, LV_ALIGN_TOP_MID, 0, 0);
 
 	lv_obj_t *line2 = lv_label_create(screen);
-	lv_label_set_text(line2, "Stat-");
+	lv_label_set_text(line2, "Status:Standby");
 	lv_obj_align(line2, LV_ALIGN_TOP_LEFT, 0, 16);
 
 	lv_obj_t *line3 = lv_label_create(screen);
-	lv_label_set_text(line3, "BLDC");
+	lv_label_set_text(line3, "Mode:BLDC-VVVF");
 	lv_obj_align(line3, LV_ALIGN_TOP_LEFT, 0, 32);
 
 	lv_obj_t *line4 = lv_label_create(screen);
